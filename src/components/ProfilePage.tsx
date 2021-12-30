@@ -1,9 +1,16 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
 
-const ProfilePage = () => {
+type ProfilePageParams = {
+  id: string
+}
+
+const ProfilePage: React.FC = () => {
+  const {id} = useParams<ProfilePageParams>();
+  console.log(typeof id, id)
   return (
     <div>
-      QQ All, it's new page ProfilePage!
+      {id}
     </div>
   );
 };

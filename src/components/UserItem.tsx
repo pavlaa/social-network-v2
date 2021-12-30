@@ -1,6 +1,6 @@
 import React from 'react';
 import {UserTypes} from "../types/types";
-import {setUsersPage} from "../store/action-creators/userAction";
+import {Link} from "react-router-dom";
 
 interface UserItemProps {
   user: UserTypes
@@ -8,7 +8,9 @@ interface UserItemProps {
 
 const UserItem: React.FC<UserItemProps> = ({user}) => {
   return (
-    <div>{user.name}</div>
+    <Link to={`/profile/${user.id}`}>
+      <div>{user.name}</div>
+    </Link>
   );
 };
 
