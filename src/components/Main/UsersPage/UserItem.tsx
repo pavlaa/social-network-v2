@@ -1,5 +1,5 @@
 import React from 'react';
-import {UserTypes} from "../types/types";
+import {UserTypes} from "../../../types/types";
 import {Link} from "react-router-dom";
 
 interface UserItemProps {

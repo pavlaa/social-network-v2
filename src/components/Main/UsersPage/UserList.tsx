@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
-import {fetchUsers, setUsersPage} from "../store/action-creators/userAction";
+import {fetchUsers, setUsersPage} from "../../../store/action-creators/userAction";
 import UserItem from "./UserItem";
 
 const UserList: React.FC = () => {
