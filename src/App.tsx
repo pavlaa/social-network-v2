@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import UserList from "./components/Main/UsersPage/UserList";
@@ -31,11 +31,11 @@ const App = () => {
         </div>
         <div className="main">
           <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="profile/" element={<ProfilePage/>}/>
-            <Route path="profile/:id" element={<ProfilePage/>}/>
-            <Route path="users" element={<UserList/>}/>
-            <Route path="login" element={<LoginPage/>}/>
+            <Route path="/" element={<Navigate to="/profile" />}/>
+            <Route path="profile" element={<ProfilePage />}/>
+            <Route path="profile/:id" element={<ProfilePage />}/>
+            <Route path="users" element={<UserList />}/>
+            <Route path="login" element={<LoginPage />}/>
           </Routes>
         </div>
       </div>

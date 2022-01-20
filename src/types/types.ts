@@ -39,4 +39,5 @@ export interface LoginDataTypes {
   email: string;
   password: string;
   rememberMe: boolean;
+  captcha?: string;
 }

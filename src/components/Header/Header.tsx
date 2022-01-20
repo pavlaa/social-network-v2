@@ -3,9 +3,19 @@ import style from "./Header.module.scss";
 import logo from '../../img/logo.svg';
 import {Link} from "react-router-dom";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import userSmall from "../../img/user.svg"
+import {useDispatch} from "react-redux";
+import {GetLogout} from "../../store/action-creators/authAction";
+
 
 const Header: React.FC = () => {
-  let {isLogin} = useTypedSelector(state => state.auth)
+  let {isLogin, login} = useTypedSelector(state => state.auth)
+  let {profile} = useTypedSelector(state => state.profile)
+  const dispatch = useDispatch()
+
+  const onLogout = () => {
+    dispatch(GetLogout())
+  }
 
   return (
     <header className={ style.header }>
@@ -19,10 +29,9 @@ const Header: React.FC = () => {
           { isLogin
             ?
             <>
-              <div>Ты залогинен</div>
-              {/*<img src={!userProfile ? userSmall : userProfile.photos.small} alt=""/>
+              <img src={profile ? profile.photos.small : userSmall} alt=""/>
               <span>{ login }</span>
-              <button className={style.header__logout} onClick={ onLogout }>Logout</button>*/}
+              <button className={style.header__logout} onClick={ onLogout }>Logout</button>
             </>
             :
             <Link to="/login">

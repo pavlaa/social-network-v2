@@ -4,8 +4,13 @@ import {reduxForm, Field, InjectedFormProps} from "redux-form";
 import {LoginDataTypes} from "../../../types/types";
 
 
+interface LoginProps {
+  captchaUrl: string | null
+}
 
-const Login: React.FC<InjectedFormProps<LoginDataTypes>>  = ({handleSubmit}) => {
+const Login: React.FC<LoginProps & InjectedFormProps<LoginDataTypes, LoginProps>> =
+  ({handleSubmit, captchaUrl, error}) => {
+
   return (
     <div className={style.form}>
       <form onSubmit={handleSubmit}>
@@ -19,6 +24,17 @@ const Login: React.FC<InjectedFormProps<LoginDataTypes>>  = ({handleSubmit}) => 
           <Field name="rememberMe" component="input" type="checkbox" />
           <span>Remember Me</span>
         </div>
+        { captchaUrl &&
+        <>
+          <img src={ captchaUrl }/>
+          <Field name="captcha" component="input" type="text" />
+        </>
+        }
+        { error &&
+        <div className={ style.form__summaryError }>
+          <span>{ error }</span>
+        </div>
+        }
         <div className={style.form__submit}>
           <button>Sing In</button>
         </div>
@@ -27,6 +43,6 @@ const Login: React.FC<InjectedFormProps<LoginDataTypes>>  = ({handleSubmit}) => 
   );
 };
 
-const LoginForm = reduxForm<LoginDataTypes>({form: 'login'})(Login)
+const LoginForm = reduxForm<LoginDataTypes, LoginProps>({form: 'login'})(Login)
 
 export default LoginForm;
