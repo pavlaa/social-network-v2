@@ -34,6 +34,12 @@ export interface Profile {
   userId: number;
   photos: UserPhotos;
 }
+export interface Post {
+  id: number | string;
+  name: string;
+  message: string;
+}
+
 
 export interface LoginDataTypes {
   email: string;

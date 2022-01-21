@@ -3,7 +3,7 @@ import {ProfileAction, ProfileActionTypes, ProfileState} from "../../types/profi
 const defaultState: ProfileState = {
   profile: null,
   posts: [
-    {name: "Pavel", message: "Hi!"}
+    {id: 1, name: "Pavel", message: "Hi!"}
   ],
   status: null,
   loading: false,
@@ -21,7 +21,15 @@ export const profileReducer = (state = defaultState, action: ProfileAction): Pro
     case ProfileActionTypes.FETCH_PROFILE_STATUS:
       return {...state, status: action.payload}
     case ProfileActionTypes.UPDATE_PROFILE_STATUS:
-      return {...state, status: action.payload}
+      return {...state, status: action.payload};
+    case ProfileActionTypes.SEND_POST:
+      const dateID = +(new Date())
+      const post = {
+        id: dateID,
+        name: 'Pavel',
+        message: action.payload
+      }
+      return {...state, posts: [post, ...state.posts]};
     default:
       return state;
   }

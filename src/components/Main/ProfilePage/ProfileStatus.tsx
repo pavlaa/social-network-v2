@@ -18,7 +18,6 @@ const ProfileStatus: React.FC<ProfileStatusProps> = ({status, isUser}) => {
     localStatus: status
   })
   const dispatch = useDispatch()
-  console.log(isUser)
   const activateEditMode = () => {
     if (isUser) {
       getState({...state, editMode: true});

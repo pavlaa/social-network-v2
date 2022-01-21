@@ -6,6 +6,7 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {useDispatch} from "react-redux";
 import {ProfileFetch, ProfileStatusFetch} from "../../../store/action-creators/profileAction";
 import ProfileStatus from "./ProfileStatus";
+import ProfileWall from "./ProfileWall";
 
 
 const ProfilePage: React.FC = () => {
@@ -65,7 +66,7 @@ const ProfilePage: React.FC = () => {
             </div>
           </div>
         </div>
-        {/*<WallContainer userProfile={props.userProfile}  />*/}
+        <ProfileWall posts={posts}  />
       </div>
     </div>
   );
