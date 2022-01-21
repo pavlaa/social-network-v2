@@ -18,6 +18,10 @@ export const profileReducer = (state = defaultState, action: ProfileAction): Pro
       return {...state, loading: false, error: null, profile: action.payload};
     case ProfileActionTypes.FETCH_PROFILE_ERROR:
       return {...state, loading: false, error: action.payload};
+    case ProfileActionTypes.FETCH_PROFILE_STATUS:
+      return {...state, status: action.payload}
+    case ProfileActionTypes.UPDATE_PROFILE_STATUS:
+      return {...state, status: action.payload}
     default:
       return state;
   }
