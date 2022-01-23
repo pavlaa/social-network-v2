@@ -47,3 +47,22 @@ export const updateProfileStatusFetch = (status: string) => {
     }
   }
 }
+
+export const updateProfilePhotoFetch = (file: any) => {
+  return async (dispatch: Dispatch<ProfileAction>) => {
+    const formData = new FormData();
+    formData.append( 'image', file);
+    const response = await axios.put(`https://social-network.samuraijs.com/api/1.0/profile/photo`, formData,
+      {
+        withCredentials: true,
+        headers: {
+          "API-KEY": "708d6509-a3f5-4b94-82ab-df3480698e6d",
+          'Content-Type': 'multipart/form-data'
+        },
+      })
+    debugger
+    if (response.data.resultCode === 0) {
+      dispatch({type: ProfileActionTypes.UPDATE_PROFILE_PHOTO, payload: response.data.data.photos})
+    }
+  }
+}

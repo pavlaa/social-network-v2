@@ -5,21 +5,21 @@ import {updateProfileStatusFetch} from "../../../store/action-creators/profileAc
 
 interface ProfileStatusProps {
   status: string | null;
-  isUser: boolean
+  isOwner: boolean
 }
 interface ProfileStateProps {
   editMode: boolean;
   localStatus: any; // тут был ступор, т.к приходит с сервера null, а value принимает только string | ReadonlyArray<string> | number | undefined
 }                   // можно отловить значение в response и проверять что приходит и присваивать "". но пока пусть будет any
 
-const ProfileStatus: React.FC<ProfileStatusProps> = ({status, isUser}) => {
+const ProfileStatus: React.FC<ProfileStatusProps> = ({status, isOwner}) => {
   const [state, getState] = useState<ProfileStateProps>({
     editMode: false,
     localStatus: status
   })
   const dispatch = useDispatch()
   const activateEditMode = () => {
-    if (isUser) {
+    if (isOwner) {
       getState({...state, editMode: true});
     }
   }

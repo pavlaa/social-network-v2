@@ -22,6 +22,11 @@ export const profileReducer = (state = defaultState, action: ProfileAction): Pro
       return {...state, status: action.payload}
     case ProfileActionTypes.UPDATE_PROFILE_STATUS:
       return {...state, status: action.payload};
+    case ProfileActionTypes.UPDATE_PROFILE_PHOTO:
+      if (state.profile) {
+        return {...state, profile: {...state.profile, photos: action.payload}};
+      }
+      return state;
     case ProfileActionTypes.SEND_POST:
       const dateID = +(new Date())
       const post = {

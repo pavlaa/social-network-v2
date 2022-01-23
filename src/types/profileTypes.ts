@@ -1,4 +1,4 @@
-import {Post, Profile} from "./types";
+import {Post, Profile, UserPhotos} from "./types";
 
 
 export interface ProfileState {
@@ -14,6 +14,7 @@ export enum ProfileActionTypes {
   FETCH_PROFILE_ERROR = "FETCH_PROFILE_ERROR",
   FETCH_PROFILE_STATUS = "FETCH_PROFILE_STATUS",
   UPDATE_PROFILE_STATUS = "UPDATE_PROFILE_STATUS",
+  UPDATE_PROFILE_PHOTO = "UPDATE_PROFILE_PHOTO",
   SEND_POST = "SEND_POST"
 }
 interface FetchProfileAction {
@@ -35,6 +36,10 @@ interface UpdateProfileStatusAction {
   type: ProfileActionTypes.UPDATE_PROFILE_STATUS;
   payload: string;
 }
+interface UpdateProfilePhotoAction {
+  type: ProfileActionTypes.UPDATE_PROFILE_PHOTO;
+  payload: UserPhotos;
+}
 interface SendPostAction {
   type: ProfileActionTypes.SEND_POST;
   payload: string;
@@ -45,4 +50,5 @@ export type ProfileAction =
   | FetchProfileErrorAction
   | FetchProfileStatusAction
   | UpdateProfileStatusAction
+  | UpdateProfilePhotoAction
   | SendPostAction;

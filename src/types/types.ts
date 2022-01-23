@@ -1,4 +1,4 @@
-interface UserPhotos {
+export interface UserPhotos {
   small: null | string;
   large: null | string
 }
@@ -16,14 +16,14 @@ export interface UsersData {
 
 
 export interface ProfileContacts {
-  facebook: null | string;
-  website: null | string;
-  vk: null | string;
-  twitter: null | string;
-  instagram: null | string;
-  youtube: null | string;
-  github: null | string;
-  mainLink: null | string;
+  facebook: string | null;
+  website: string | null;
+  vk: string | null;
+  twitter: string | null;
+  instagram: string | null;
+  youtube: string | null;
+  github: string | null;
+  mainLink: string | null;
 }
 export interface Profile {
   aboutMe: null | string;
