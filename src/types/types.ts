@@ -47,3 +47,11 @@ export interface LoginDataTypes {
   rememberMe: boolean;
   captcha?: string;
 }
+
+
+export interface MessageTypes {
+  id: number | string;
+  name: string;
+  date: string;
+  message: string;
+}

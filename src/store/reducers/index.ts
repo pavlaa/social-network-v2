@@ -3,11 +3,13 @@ import {userReducer} from "./userReducer";
 import {profileReducer} from "./profileReducer";
 import {AuthReducer} from "./authReducer";
 import {reducer as formReducer} from "redux-form"
+import {messagesReducer} from "./messagesReducer";
 
 
 export const rootReducer = combineReducers({
-  user: userReducer,
   profile: profileReducer,
+  messages: messagesReducer,
+  user: userReducer,
   auth: AuthReducer,
   form: formReducer
 })

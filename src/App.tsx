@@ -5,11 +5,11 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import UserList from "./components/Main/UsersPage/UserList";
 import ProfilePage from "./components/Main/ProfilePage/ProfilePage";
-import HomePage from "./components/Main/HomePage";
 import {useDispatch} from "react-redux";
 import {AuthFetch} from "./store/action-creators/authAction";
 import {useTypedSelector} from "./hooks/useTypedSelector";
 import LoginPage from "./components/Main/LoginPage/LoginPage";
+import MessagesPage from "./components/Main/MessagePage/MessagesPage";
 
 const App = () => {
   let {initialized} = useTypedSelector(state => state.auth)
@@ -34,6 +34,7 @@ const App = () => {
             <Route path="/" element={<Navigate to="/profile" />}/>
             <Route path="profile" element={<ProfilePage />}/>
             <Route path="profile/:id" element={<ProfilePage />}/>
+            <Route path="messages" element={<MessagesPage />}/>
             <Route path="users" element={<UserList />}/>
             <Route path="login" element={<LoginPage />}/>
           </Routes>
