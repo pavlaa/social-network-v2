@@ -7,7 +7,8 @@ const defaultState: UsersState = {
   error: null,
   totalUsers: 0,
   currentPage: 1,
-  limit: 4
+  limit: 4,
+  portionSize: 10
 }
 
 export const userReducer = (state = defaultState, action: UsersAction): UsersState => {

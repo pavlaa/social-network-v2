@@ -3,7 +3,7 @@ import './App.scss';
 import { Routes, Route, Navigate} from 'react-router-dom';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import UserList from "./components/Main/UsersPage/UserList";
+import Users from "./components/Main/UsersPage/Users";
 import ProfilePage from "./components/Main/ProfilePage/ProfilePage";
 import {useDispatch} from "react-redux";
 import {AuthFetch} from "./store/action-creators/authAction";
@@ -35,7 +35,7 @@ const App = () => {
             <Route path="profile" element={<ProfilePage />}/>
             <Route path="profile/:id" element={<ProfilePage />}/>
             <Route path="messages" element={<MessagesPage />}/>
-            <Route path="users" element={<UserList />}/>
+            <Route path="users" element={<Users />}/>
             <Route path="login" element={<LoginPage />}/>
           </Routes>
         </div>

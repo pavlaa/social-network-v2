@@ -6,7 +6,8 @@ export interface UsersState {
   error: null | string;
   totalUsers: number;
   currentPage: number;
-  limit: number
+  limit: number;
+  portionSize: number;
 }
 export enum UserActionTypes {
   FETCH_USERS = "FETCH_USERS",
