@@ -6,13 +6,14 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import ChatMessageForm from "./Chat/ChatForm";
 import {useDispatch} from "react-redux";
 import {MessagesActionTypes} from "../../../types/messagesTypes";
+import Friends from "./Friends/Friends";
 
 export interface MessageData {
   message: string;
 }
 
 const MessagesPage = () => {
-  const {messages} = useTypedSelector(state => state.messages)
+  const {messages, friends} = useTypedSelector(state => state.messages)
   const dispatch = useDispatch()
 
   function sendMessage(message: MessageData) {
@@ -27,7 +28,7 @@ const MessagesPage = () => {
           <ChatBody messages={messages}/>
           <ChatMessageForm onSubmit={sendMessage}/>
         </div>
-        {/*<FriendsList friendsData={ props.friendsData }/>*/}
+        <Friends friends={ friends }/>
       </div>
     </div>
   );

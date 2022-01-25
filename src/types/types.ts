@@ -55,3 +55,10 @@ export interface MessageTypes {
   date: string;
   message: string;
 }
+
+
+export interface FriendTypes {
+  id: number;
+  name: string;
+  photo: string;
+}
