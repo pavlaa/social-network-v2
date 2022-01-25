@@ -8,7 +8,8 @@ const defaultState: UsersState = {
   totalUsers: 0,
   currentPage: 1,
   limit: 4,
-  portionSize: 10
+  portionSize: 10,
+  followingProgress: []
 }
 
 export const userReducer = (state = defaultState, action: UsersAction): UsersState => {
@@ -21,6 +22,27 @@ export const userReducer = (state = defaultState, action: UsersAction): UsersSta
       return {...state, loading: false, error: action.payload};
     case UserActionTypes.SET_USERS_PAGE:
       return {...state, loading: false, currentPage: action.payload};
+    case UserActionTypes.FOLLOW:
+      return {...state, users: state.users.map(user => {
+          if (user.id === action.payload) {
+            return {...user, followed: true}
+          }
+          return user
+        })};
+    case UserActionTypes.UNFOLLOW:
+      return {...state, users: state.users.map(user => {
+          if (user.id === action.payload) {
+            return {...user, followed: false}
+          }
+          return user
+        })};
+    case UserActionTypes.SET_FOLLOWING_PROGRESS:
+      return {
+        ...state,
+        followingProgress: action.payload.isFetching
+          ? [...state.followingProgress, action.payload.id]
+          : state.followingProgress.filter(id => id != action.payload.id)
+      };
     default:
       return state;
   }

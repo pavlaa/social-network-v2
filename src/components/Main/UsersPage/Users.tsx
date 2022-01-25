@@ -6,10 +6,10 @@ import {fetchUsers, setUsersPage} from "../../../store/action-creators/userActio
 import User from "./User";
 
 const Users: React.FC = () => {
-  const {users, loading, error, totalUsers, currentPage, limit, portionSize} = useTypedSelector(state => state.user)
+  const {users, loading, error, totalUsers, currentPage, limit, portionSize, followingProgress} = useTypedSelector(state => state.user)
   const dispatch = useDispatch()
 
-  const usersElements = users.map((user) => <User key={user.id} user={user} />)
+  const usersElements = users.map((user) => <User key={user.id} user={user} followingProgress={followingProgress} />)
 
   useEffect(() => {
     dispatch(fetchUsers(currentPage, limit))

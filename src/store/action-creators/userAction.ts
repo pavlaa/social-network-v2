@@ -20,6 +20,39 @@ export const fetchUsers = (currentPage: number, limit: number) => {
     }
   }
 }
+
 export const setUsersPage = (page: number): UsersAction => {
   return {type:UserActionTypes.SET_USERS_PAGE, payload: page}
+}
+
+export const followUser = (userID: number) => {
+
+  return async (dispatch: Dispatch<UsersAction>) => {
+    dispatch({type: UserActionTypes.SET_FOLLOWING_PROGRESS, payload: {id: userID, isFetching: true}})
+    const response = await axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userID}`, {},{
+      withCredentials: true,
+      headers: {
+        "API-KEY": "708d6509-a3f5-4b94-82ab-df3480698e6d"
+      }
+    })
+    dispatch({type: UserActionTypes.SET_FOLLOWING_PROGRESS, payload: {id: userID, isFetching: false}})
+    if (response.data.resultCode === 0) {
+      dispatch({type: UserActionTypes.FOLLOW, payload: userID});
+    }
+  }
+}
+export const unfollowUser = (userID: number) => {
+  return async (dispatch: Dispatch<UsersAction>) => {
+    dispatch({type: UserActionTypes.SET_FOLLOWING_PROGRESS, payload: {id: userID, isFetching: true}})
+    const response = await axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userID}`, {
+      withCredentials: true,
+      headers: {
+        "API-KEY": "708d6509-a3f5-4b94-82ab-df3480698e6d"
+      }
+    })
+    dispatch({type: UserActionTypes.SET_FOLLOWING_PROGRESS, payload: {id: userID, isFetching: false}})
+    if (response.data.resultCode === 0) {
+      dispatch({type: UserActionTypes.UNFOLLOW, payload: userID});
+    }
+  }
 }
