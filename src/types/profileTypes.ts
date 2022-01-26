@@ -1,8 +1,8 @@
-import {Post, Profile, UserPhotos} from "./types";
+import {Post, ProfileType, UserPhotos} from "./types";
 
 
 export interface ProfileState {
-  profile: Profile | null;
+  profile: ProfileType;
   posts: Post[];
   status: string | null;
   loading: boolean;
@@ -22,7 +22,7 @@ interface FetchProfileAction {
 }
 interface FetchProfileSuccessAction {
   type: ProfileActionTypes.FETCH_PROFILE_SUCCESS;
-  payload: Profile;
+  payload: ProfileType;
 }
 interface FetchProfileErrorAction {
   type: ProfileActionTypes.FETCH_PROFILE_ERROR;

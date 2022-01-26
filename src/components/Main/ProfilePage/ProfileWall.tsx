@@ -1,5 +1,5 @@
 import React from 'react';
-import {Post, Profile} from "../../../types/types";
+import {Post, ProfileType} from "../../../types/types";
 import ProfilePost from "./ProfilePost";
 import ProfilePostForm from "./ProfilePostForm";
 import {useDispatch} from "react-redux";
@@ -10,7 +10,7 @@ export interface PostData {
 }
 interface ProfileWallProps {
   posts: Post[];
-  profile: Profile;
+  profile: ProfileType;
 }
 
 const ProfileWall: React.FC<ProfileWallProps> = ({profile, posts}) => {

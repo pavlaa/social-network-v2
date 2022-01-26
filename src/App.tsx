@@ -10,6 +10,7 @@ import {AuthFetch} from "./store/action-creators/authAction";
 import {useTypedSelector} from "./hooks/useTypedSelector";
 import LoginPage from "./components/Main/LoginPage/LoginPage";
 import MessagesPage from "./components/Main/MessagePage/MessagesPage";
+import SettingsPage from "./components/Main/SettingsPage/SettingsPage";
 
 const App = () => {
   let {initialized} = useTypedSelector(state => state.auth)
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="profile/:id" element={<ProfilePage />}/>
             <Route path="messages" element={<MessagesPage />}/>
             <Route path="users" element={<Users />}/>
+            <Route path="settings" element={<SettingsPage />}/>
             <Route path="login" element={<LoginPage />}/>
           </Routes>
         </div>

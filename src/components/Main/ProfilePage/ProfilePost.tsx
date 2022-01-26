@@ -1,13 +1,13 @@
 import React from 'react';
 import style from "./ProfilePost.module.scss"
 import userSmall from "../../../img/user.svg";
-import {Profile} from "../../../types/types";
+import {ProfileType} from "../../../types/types";
 
 
 interface ProfilePostProps {
   name: string;
   message: string;
-  profile: Profile;
+  profile: ProfileType;
 }
 
 const ProfilePost: React.FC<ProfilePostProps> = ({name, message, profile}) => {
@@ -15,7 +15,7 @@ const ProfilePost: React.FC<ProfilePostProps> = ({name, message, profile}) => {
     <div className={style.post}>
       <div className={style.post__user}>
         <div className={style.post__photo}>
-          <img src={profile.photos.small ? profile.photos.small : userSmall} alt="photo-user" />
+          <img src={profile.photos?.small ? profile.photos?.small : userSmall} alt="photo-user" />
         </div>
         <div className={style.post__info}>
           <div className={style.post__name}>{name}</div>

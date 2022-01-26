@@ -1,7 +1,13 @@
 import {ProfileAction, ProfileActionTypes, ProfileState} from "../../types/profileTypes";
 
 const defaultState: ProfileState = {
-  profile: null,
+  profile: {
+    aboutMe: null,
+    lookingForAJob: false,
+    lookingForAJobDescription: null,
+    fullName: null,
+    userId: null
+  },
   posts: [
     {id: 1, name: "Pavel", message: "Hi!"}
   ],

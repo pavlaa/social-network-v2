@@ -45,7 +45,7 @@ const ProfilePage: React.FC = () => {
         <div className={ `${ style.profile__user } ${ style.user }` }>
           <div className={ style.user__img }>
             <img
-              src={profile.photos.large ? profile.photos.large : userLarge}
+              src={profile.photos?.large ? profile.photos.large : userLarge}
               alt="photo-user"/>
             {
               isOwner &&

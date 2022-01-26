@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           { isLogin
             ?
             <>
-              <img src={profile ? profile.photos.small : userSmall} alt=""/>
+              <img src={profile ? profile.photos?.small : userSmall} alt=""/>
               <span>{ login }</span>
               <button className={style.header__logout} onClick={ onLogout }>Logout</button>
             </>

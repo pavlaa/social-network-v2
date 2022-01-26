@@ -25,14 +25,14 @@ export interface ProfileContacts {
   github: string | null;
   mainLink: string | null;
 }
-export interface Profile {
+export interface ProfileType {
   aboutMe: null | string;
-  contacts: ProfileContacts;
+  contacts?: ProfileContacts;
   lookingForAJob: boolean;
   lookingForAJobDescription: null | string;
-  fullName: string;
-  userId: number;
-  photos: UserPhotos;
+  fullName: string | null;
+  userId: number | null;
+  photos?: UserPhotos;
 }
 export interface Post {
   id: number | string;
